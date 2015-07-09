@@ -1,9 +1,6 @@
 // RUN ME:
 // node server
 
-// LEARN ABOUT ME:
-// https://www.youtube.com/watch?v=kHV7gOHvNdk&list=PLX2HoWE32I8Nkzw2TqcifObuhgJZz8a0U
-
 var express = require('express');
 var app = express();
 var mongojs = require('mongojs');

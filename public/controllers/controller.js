@@ -4,7 +4,7 @@
   MyController = app.controller("MyController", ['$scope', '$http', '$interval', function($scope, $http, $interval){
 
     // Initialize variables:
-    $scope.timeRemaining = 2;
+    $scope.timeRemaining = 3;
     $scope.currentRecord = {
       start:"", end:""
     };
@@ -25,18 +25,22 @@
 
     refresh();
 
-    $scope.addContact = function() {
-      console.log("You entered this info: " +$scope.contact);
+    $scope.postRecord = function() {
+      console.log("You are posting this info: " +$scope.currentRecord);
 
-      $http.post('/typespeed', $scope.contact).success(function(response) {
+      $http.post('/typespeed', $scope.currentRecord).success(function(response) {
         console.log("Success function running!" +response);
-        refresh();
       }); // end POST function
     }; // end addContact function
+
+    $scope.startCountDown = function() {
+      countDown = $interval(decreaseTime,1000);
+    }
 
     var stopCountDown = function() {
       $interval.cancel(countDown);
       $scope.currentRecord.end = (new Date()).getTime();
+      $scope.postRecord();
     };
 
     var decreaseTime = function() {
@@ -45,10 +49,9 @@
         stopCountDown();
       }
     };
-    countDown = $interval(decreaseTime,1000);
 
     $scope.resetTime = function() {
-      $scope.timeRemaining = 2;
+      $scope.timeRemaining = 3;
       if ($scope.currentRecord.start == "") {
         $scope.currentRecord.start = (new Date()).getTime();
       }

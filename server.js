@@ -26,13 +26,6 @@ app.get('/typespeed', function(req, res) {
   // This should appear in Terminal
   console.log("I received a get request");
 
-  scores = [1,2,3];
-
-  // Generate a response by generating the "scores" variable in a JSON format
-  // if there is a "res" statement in the db.typespeed function, then I can't have a "res" statement here because I get an error:
-  // Error: Can't set headers after they are sent
-  // res.json(scores);
-
   // Remember to run MongoJS in order to retrieve the DB data!
   // Same thing happens in rails: Postgres has to be running while Rails app is running
   db.typespeed.find(function(err,docs) {

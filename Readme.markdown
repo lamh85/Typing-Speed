@@ -12,10 +12,10 @@ Make sure that you have MongoDB installed.
 In your MongoDB data, create a database called `typespeed`.
 
 Here is the database's schema:
-`_id` : primary key
-`start` : The start time of the typing. Format is in UNIX time.
-`end` : Same as above, but for end time.
-`body` : Body of the inputted text.
+* `_id` : primary key
+* `start` : The start time of the typing. Format is in UNIX time.
+* `end` : Same as above, but for end time.
+* `body` : Body of the inputted text.
 
 ## Run the app from Terminal
 

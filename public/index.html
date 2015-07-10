@@ -29,11 +29,16 @@
       <th>Word Count</th>
       <th>Words Per Minute</th>
       <th>Most Frequent Word</th>
-
+    </tr>
+    <tr ng-repeat="record in records">
+      <td>{{toDateTime(record.end)}}</td>
+      <th>{{wordCount(record.body)}}</th>
+      <td>{{WPM(record.start, record.end, record.body)}}</td>
+      <td>most frequent</td>
     </tr>
   </table>
 
-  <textarea ng-model="currentRecord.body" ng-keyup="resetTime()"></textarea>
+  <textarea ng-model="currentRecord.body" ng-keyup="keyUp()"></textarea>
 
   <p>You have {{timeRemaining}} seconds left!
 

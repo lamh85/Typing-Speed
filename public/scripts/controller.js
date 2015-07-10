@@ -3,7 +3,7 @@
 
   app.service('restService',['$http', function($http) {
     restVar = this;
-    this.records = [1,2,3,4];
+    this.records = [1,2,3,4]; // Dummy values for testing
         
     this.getRecords = function() {
       $http.get('/typespeed').success(function(response) {
@@ -92,14 +92,14 @@
   MyController = app.controller("MyController", ['$scope', '$http', '$interval', 'restService', function($scope, $http, $interval, restService){
 
     // Initialize variables:
-    $scope.timeRemaining = 3;
+    $scope.timeRemaining = 60;
     $scope.currentRecord = { start:"", end:"" };
     var sessionStarted = false;
     var countdown;
     $scope.records = restVar.records;
 
     var resetVariables = function() {
-      $scope.timeRemaining = 3;
+      $scope.timeRemaining = 60;
       $scope.currentRecord = { start:"", end:"" };
       sessionStarted = false;
       countdown ="";
@@ -135,13 +135,12 @@
 
       if ($scope.currentRecord.end == "") {
         // Reset timer
-        $scope.timeRemaining = 3;
+        $scope.timeRemaining = 60;
       }
 
       if ($scope.currentRecord.start == "") {
         // Record start time
         $scope.currentRecord.start = (new Date()).getTime();
-        console.log("The start time is " +$scope.currentRecord.start);
       }
     } // keyUp
 

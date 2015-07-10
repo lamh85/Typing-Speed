@@ -7,15 +7,20 @@
         
     this.getRecords = function() {
       $http.get('/typespeed').success(function(response) {
-        restVar.records = (response).reverse();
+        // Reverse sort array by object property: .end
+        restVar.records = (response).sort(function(a,b){
+          return b.end - a.end;
+        });
+        console.log("this.getRecords is running!");
       }); // End GET function
     } // end getRecords
 
     this.postRecord = function(currentRecord) {
       $http.post('/typespeed', currentRecord).success(function(response) {
         restVar.getRecords();
+        console.log("this.postRecord is running!");
       }); // end POST function
-    }; // end postRecords
+    }; // end postRecord
 
     this.returnRecords = function(){
       return this.records;
@@ -85,7 +90,6 @@
         return mostFrequentWord;
       }
     } // End mostFrequent
-
     
   }]); // End service
 
@@ -126,7 +130,7 @@
       }
     };
 
-    $scope.keyUp = function() {
+    $scope.keyPress = function() {
       if (sessionStarted == false) {
         sessionStarted = true;
         // Start countdown
@@ -142,7 +146,7 @@
         // Record start time
         $scope.currentRecord.start = (new Date()).getTime();
       }
-    } // keyUp
+    } // keyPress
 
     // Calculations
     // ////////////

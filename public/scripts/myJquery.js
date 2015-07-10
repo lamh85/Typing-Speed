@@ -3,7 +3,7 @@ $( document ).ready(function() {
     return document.getElementById("inputArea").scrollHeight;
   }
 
-  $('#inputArea').keyup(function(){
+  $('#inputArea').keypress(function(){
     $('#inputArea').css('height', getScrollHeight()+'px');
   })
 

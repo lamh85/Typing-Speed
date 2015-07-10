@@ -28,13 +28,12 @@
 
   <h1>Enter text</h1>
 
-  <textarea id="inputArea" ng-model="currentRecord.body" ng-keyup="keyUp()"></textarea>
+  <textarea id="inputArea" ng-model="currentRecord.body" ng-keypress="keyPress()"></textarea>
 
   <p>You have {{timeRemaining}} seconds left!
 
   <p>Preview of data to be entered:
   <br>{{currentRecord}}
-
 
   <script src="/scripts/controller.js"></script>
   <script src="/scripts/myJquery.js"></script>

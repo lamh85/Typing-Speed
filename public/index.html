@@ -6,26 +6,10 @@
 
 <body ng-controller="MyController">
 
-  <h1>Test table</h1>
+  <h1>Stats</h1>
   <table>
     <tr>
-      <th>ID</th>
-      <th>Start</th>
-      <th>End</th>
-      <th>Body</th>
-    </tr>
-    <tr ng-repeat="row in testdata">
-      <td>{{row._id}}</td>
-      <td>{{row.start}}</td>
-      <td>{{row.end}}</td>
-      <td>{{row.body}}</td>
-    </tr>
-  </table>
-
-  <h1>Real Table</h1>
-  <table>
-    <tr>
-      <th>Time Submitted</th>
+      <th>Date-Time Submitted</th>
       <th>Word Count</th>
       <th>Words Per Minute</th>
       <th>Most Frequent Word</th>
@@ -34,9 +18,11 @@
       <td>{{toDateTime(record.end)}}</td>
       <th>{{wordCount(record.body)}}</th>
       <td>{{WPM(record.start, record.end, record.body)}}</td>
-      <td>most frequent</td>
+      <td>{{mostFrequent(record.body)}}</td>
     </tr>
   </table>
+
+  <h1>Enter text</h1>
 
   <textarea ng-model="currentRecord.body" ng-keyup="keyUp()"></textarea>
 

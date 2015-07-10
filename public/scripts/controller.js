@@ -7,18 +7,12 @@
         
     this.getRecords = function() {
       $http.get('/typespeed').success(function(response) {
-        console.log("getRecords Success function fired!");
         restVar.records = (response).reverse();
-        console.log("restVar.records = " +restVar.records);
       }); // End GET function
-      console.log("getRecords function is running!");
     } // end getRecords
 
     this.postRecord = function(currentRecord) {
-      console.log("You are posting this info: " +currentRecord);
-
       $http.post('/typespeed', currentRecord).success(function(response) {
-        console.log("postRecords Success function running!" +response);
         restVar.getRecords();
       }); // end POST function
     }; // end postRecords
@@ -108,8 +102,8 @@
       $scope.timeRemaining = 3;
       $scope.currentRecord = { start:"", end:"" };
       sessionStarted = false;
-      countdown;
-      $scope.records = [];
+      countdown ="";
+      // $scope.records = [];
     }
 
     restService.getRecords();

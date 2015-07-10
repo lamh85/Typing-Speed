@@ -1,0 +1,24 @@
+* {
+  font-weight: 100;
+  font-family: sans-serif;
+}
+
+td, th {
+  border: 1px solid black;
+  padding: 0.25em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+textarea {
+  width: 100%;
+  height: 20%;
+  font-size: 12pt;
+}
+
+.half-height {
+  height: 50%;
+  overflow: scroll;
+}

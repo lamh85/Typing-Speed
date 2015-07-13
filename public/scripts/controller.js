@@ -7,10 +7,10 @@
         
     this.getRecords = function() {
       $http.get('/typespeed').success(function(response) {
-        // Reverse sort array by object property: .end
+        // Reverse-sort the array via object property: .end
         restVar.records = (response).sort(function(a,b){
           return b.end - a.end;
-        });
+        }); // end sort function
         console.log("this.getRecords is running!");
       }); // End GET function
     } // end getRecords
@@ -27,7 +27,7 @@
     }
 
     // Calculations
-    // ////////////
+    // ############
 
     this.toDateTime = function(unixTime) {
       return (new Date(unixTime)).toString('dddd, MMMM,yyyy');
@@ -88,7 +88,7 @@
         }
 
         return mostFrequentWord;
-      }
+      } // Edit "if" statement
     } // End mostFrequent
     
   }]); // End service
@@ -130,6 +130,7 @@
       }
     };
 
+    // Execute this whenever the user presses a key.
     $scope.keyPress = function() {
       if (sessionStarted == false) {
         sessionStarted = true;
@@ -149,7 +150,7 @@
     } // keyPress
 
     // Calculations
-    // ////////////
+    // ############
 
     $scope.toDateTime = function(unixTime) {
       return restVar.toDateTime(unixTime);
